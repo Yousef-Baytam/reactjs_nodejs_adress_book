@@ -1,10 +1,23 @@
+import { Route, Routes } from 'react-router-dom';
+import Header from './pages/Header';
+import Auth from './pages/Auth'
 import './App.css';
+
+
 
 function App() {
   return (
-    <div className="App">
-      Hello
-    </div>
+    <>
+      <Header />
+      <div className="App">
+        <Routes>
+          <Route
+            path="/"
+            element={<Auth />}
+          ></Route>
+        </Routes>
+      </div>
+    </>
   );
 }
 
