@@ -7,6 +7,7 @@ const app = express()
 const MongoStore = require('connect-mongo');
 const cors = require('cors')
 const authRoutes = require('./Routes/authRoutes')
+const User = require('./Models/user')
 
 mongoose.connect('mongodb://127.0.0.1:27017/AddressBook')
     .then(() => {
@@ -32,6 +33,10 @@ app.use(cors())
 app.use(express.json())
 app.use(passport.initialize())
 app.use(passport.session())
+passport.use(new LocalStrategy(User.authenticate()))
+
+passport.serializeUser(User.serializeUser())
+passport.deserializeUser(User.deserializeUser())
 
 app.use('/', authRoutes)
 
