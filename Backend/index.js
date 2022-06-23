@@ -6,6 +6,7 @@ const LocalStrategy = require('passport-local')
 const app = express()
 const MongoStore = require('connect-mongo');
 const cors = require('cors')
+const authRoutes = require('./Routes/authRoutes')
 
 mongoose.connect('mongodb://127.0.0.1:27017/AddressBook')
     .then(() => {
@@ -31,6 +32,8 @@ app.use(cors())
 app.use(express.json())
 app.use(passport.initialize())
 app.use(passport.session())
+
+app.use('/', authRoutes)
 
 app.listen('777', () => {
     console.log('Listening for requests on port 77777777777777777777777777777777')
