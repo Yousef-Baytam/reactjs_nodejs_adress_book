@@ -1,9 +1,13 @@
 const User = require('../Models/user')
 
-module.exports.register = async (req, res) => {
+module.exports.register = async (req, res, next) => {
     const user = new User(req.body)
-    const result = await User.register(user, req.body.password)
-    res.send(result)
+    await User.register(user, req.body.password)
+    next()
+}
+
+module.exports.registerResponse = (req, res) => {
+    res.send({ 'response': 'success' })
 }
 
 module.exports.login = (req, res) => {
