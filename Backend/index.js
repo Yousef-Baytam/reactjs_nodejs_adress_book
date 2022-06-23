@@ -7,6 +7,7 @@ const app = express()
 const MongoStore = require('connect-mongo');
 const cors = require('cors')
 const authRoutes = require('./Routes/authRoutes')
+const contactsRoutes = require('./Routes/contactRoutes')
 const User = require('./Models/user')
 
 mongoose.connect('mongodb://127.0.0.1:27017/AddressBook')
@@ -21,10 +22,9 @@ app.use(session({
     name: 'session',
     resave: false,
     saveUninitialized: true,
-    store: MongoStore.create({ mongoUrl: 'mongodb://127.0.0.1:27017/CarpoolingApp' }),
+    store: MongoStore.create({ mongoUrl: 'mongodb://127.0.0.1:27017/AddressBook' }),
     cookie: {
         httpOnly: true,
-        // secure: true,
         expires: Date.now() + 1000 * 60 * 60 * 24 * 7,
         maxAge: 1000 * 60 * 60 * 24 * 7
     }
@@ -39,6 +39,7 @@ passport.serializeUser(User.serializeUser())
 passport.deserializeUser(User.deserializeUser())
 
 app.use('/', authRoutes)
+app.use('/contacts', contactsRoutes)
 
 app.use((err, req, res, next) => {
     const { statusCode = 500, message = 'Something Went Wrong!' } = err
