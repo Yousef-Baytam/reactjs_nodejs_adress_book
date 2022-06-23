@@ -40,6 +40,11 @@ passport.deserializeUser(User.deserializeUser())
 
 app.use('/', authRoutes)
 
+app.use((err, req, res, next) => {
+    const { statusCode = 500, message = 'Something Went Wrong!' } = err
+    res.status(statusCode).send(err.stack)
+})
+
 app.listen('777', () => {
     console.log('Listening for requests on port 77777777777777777777777777777777')
 })
