@@ -4,8 +4,8 @@ const catchAsync = require('../Utils/catchAsync')
 const contactController = require('../Controllers/contactsController')
 
 router.get('/', catchAsync(contactController.getContacts))
-router.post('/',)
-router.patch('/',)
+router.post('/', catchAsync(contactController.addContacts))
+router.patch('/:id',)
 router.delete('/',)
 
 module.exports = router
