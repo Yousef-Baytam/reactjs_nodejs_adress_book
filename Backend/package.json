@@ -1,0 +1,31 @@
+{
+  "name": "reactjs_nodejs_adress_book",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Yousef-Baytam/reactjs_nodejs_adress_book.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Yousef-Baytam/reactjs_nodejs_adress_book/issues"
+  },
+  "homepage": "https://github.com/Yousef-Baytam/reactjs_nodejs_adress_book#readme",
+  "dependencies": {
+    "body-parser": "^1.20.0",
+    "cors": "^2.8.5",
+    "express": "^4.18.1",
+    "express-session": "^1.17.3",
+    "mongo-connect": "^0.0.6",
+    "mongoose": "^6.4.0",
+    "passport": "^0.6.0",
+    "passport-local": "^1.0.0",
+    "passport-local-mongoose": "^7.1.2",
+    "phone": "^3.1.22"
+  }
+}
