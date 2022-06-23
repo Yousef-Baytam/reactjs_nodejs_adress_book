@@ -9,6 +9,7 @@ const cors = require('cors')
 const authRoutes = require('./Routes/authRoutes')
 const contactsRoutes = require('./Routes/contactRoutes')
 const User = require('./Models/user')
+const { loggedIn } = require('./Middleware/app')
 
 mongoose.connect('mongodb://127.0.0.1:27017/AddressBook')
     .then(() => {
@@ -39,7 +40,7 @@ passport.serializeUser(User.serializeUser())
 passport.deserializeUser(User.deserializeUser())
 
 app.use('/', authRoutes)
-app.use('/contacts', contactsRoutes)
+app.use('/contacts', loggedIn, contactsRoutes)
 
 app.use((err, req, res, next) => {
     const { statusCode = 500, message = 'Something Went Wrong!' } = err
