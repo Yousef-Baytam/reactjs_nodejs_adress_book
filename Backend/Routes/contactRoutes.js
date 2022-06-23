@@ -5,7 +5,7 @@ const contactController = require('../Controllers/contactsController')
 
 router.get('/', catchAsync(contactController.getContacts))
 router.post('/', catchAsync(contactController.addContacts))
-router.patch('/:id',)
+router.patch('/:id', catchAsync(contactController.updateContacts))
 router.delete('/',)
 
 module.exports = router
