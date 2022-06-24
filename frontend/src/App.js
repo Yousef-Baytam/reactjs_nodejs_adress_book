@@ -12,6 +12,7 @@ function App() {
   const [user, setUser] = useState({})
   const [loggedIn, setLoggedIn] = useState(false)
   const [contacts, setContacts] = useState([])
+  const [gotContacts, setGotContacts] = useState(false)
   const [fullName, setFullName] = useState('')
   const [phone, setPhone] = useState('')
   const [email, setEmail] = useState('')
@@ -49,6 +50,7 @@ function App() {
       })
       if (res.data.results) {
         setContacts(res.data.results)
+        setGotContacts(true)
       }
     }
     catch (e) {
@@ -139,7 +141,7 @@ function App() {
           ></Route>
           <Route
             path="/contacts"
-            element={<Contacts loggedIn={loggedIn} user={user} contacts={contacts} setContacts={setContacts} />}
+            element={<Contacts loggedIn={loggedIn} user={user} contacts={contacts} setContacts={setContacts} handleContacts={handleContacts} gotContacts={gotContacts} />}
           ></Route>
         </Routes>
       </div>

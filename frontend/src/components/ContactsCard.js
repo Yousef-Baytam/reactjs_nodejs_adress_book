@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function ContactsCard(props) {
     return (
-        <div className='card-container'>
+        <div className='card-container' id={props.id} key={props.id}>
             <div className='card'>
                 <div>
                     {props.name}
@@ -17,7 +17,7 @@ export default function ContactsCard(props) {
                     {props.status}
                 </div>
                 <div>
-                    {props.address}
+                    {props.address.location ?? "Address not set"}
                 </div>
             </div>
         </div>
