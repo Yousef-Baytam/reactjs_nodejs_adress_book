@@ -23,24 +23,25 @@ app.use(session({
     name: 'session',
     resave: false,
     saveUninitialized: true,
-    store: MongoStore.create({ mongoUrl: 'mongodb://127.0.0.1:27017/AddressBook' }),
     cookie: {
         httpOnly: true,
         expires: Date.now() + 1000 * 60 * 60 * 24 * 7,
         maxAge: 1000 * 60 * 60 * 24 * 7
     }
 }))
+
 app.use(cors())
 app.use(express.json())
 app.use(passport.initialize())
-app.use(passport.session())
+// app.use(passport.session())
 passport.use(new LocalStrategy(User.authenticate()))
+require('./Utils/passportJWT')(passport)
 
 passport.serializeUser(User.serializeUser())
-passport.deserializeUser(User.deserializeUser())
+// passport.deserializeUser(User.deserializeUser())
 
 app.use('/', authRoutes)
-app.use('/contacts', loggedIn, contactsRoutes)
+app.use('/contacts', contactsRoutes)
 
 app.use((err, req, res, next) => {
     const { statusCode = 500, message = 'Something Went Wrong!' } = err
