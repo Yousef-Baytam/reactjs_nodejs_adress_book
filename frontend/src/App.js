@@ -33,8 +33,27 @@ function App() {
     }
   }
 
+  const handleContacts = async () => {
+    try {
+      let res = await axios({
+        url: `http://127.0.0.1:777/contacts`,
+        method: "Get",
+        headers: {
+          Authorization: `bearer ${ localStorage.getItem('token') }`
+        },
+      })
+      if (res.data.results) {
+        setContacts(res.data.results)
+      }
+    }
+    catch (e) {
+      console.log(e);
+    }
+  }
+
   useEffect(() => {
     loggedIn ? navigate('/contacts') : localStorage.getItem('token') && handleAuthentication()
+    handleContacts()
   }, [])
 
   return (
