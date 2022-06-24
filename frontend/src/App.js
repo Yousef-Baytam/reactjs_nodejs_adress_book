@@ -81,10 +81,10 @@ function App() {
     }
   }
 
-  const patchContact = async () => {
+  const patchContact = async (id) => {
     try {
       let res = await axios({
-        url: `http://127.0.0.1:777/contacts`,
+        url: `http://127.0.0.1:777/contacts/${ id }`,
         method: "patch",
         data: {
           "fullName": fullName,
@@ -97,9 +97,27 @@ function App() {
           Authorization: `bearer ${ localStorage.getItem('token') }`
         },
       })
-      if (res.data.success) {
-        setContacts([...contacts, res.data.results])
-      }
+      // if (res.data.success) {
+      //   setContacts([...contacts, res.data.results])
+      // }
+    }
+    catch (e) {
+      console.log(e);
+    }
+  }
+
+  const deleteContact = async (id) => {
+    try {
+      let res = await axios({
+        url: `http://127.0.0.1:777/contacts${ id }`,
+        method: "delete",
+        headers: {
+          Authorization: `bearer ${ localStorage.getItem('token') }`
+        },
+      })
+      // if (res.data.success) {
+      //   setContacts([...contacts, res.data.results])
+      // }
     }
     catch (e) {
       console.log(e);
