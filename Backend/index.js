@@ -41,7 +41,7 @@ passport.serializeUser(User.serializeUser())
 // passport.deserializeUser(User.deserializeUser())
 
 app.use('/', authRoutes)
-app.use('/contacts', contactsRoutes)
+app.use('/contacts', passport.authenticate('jwt', { session: false }), contactsRoutes)
 
 app.use((err, req, res, next) => {
     const { statusCode = 500, message = 'Something Went Wrong!' } = err
