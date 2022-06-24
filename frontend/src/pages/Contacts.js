@@ -4,6 +4,7 @@ import ContactsCard from '../components/ContactsCard'
 import Input from '../components/Input'
 import 'react-phone-number-input/style.css'
 import PhoneInput from 'react-phone-number-input'
+import Submit from '../components/Submit'
 
 export default function Contacts(props) {
     const navigate = useNavigate()
@@ -47,13 +48,15 @@ export default function Contacts(props) {
                     onChange={props.setPhone} />
                 <label htmlFor='status'> Relationship Status</label><br />
                 <select value={props.relationshipStatus} onChange={(e) => props.setRelationshipStatus(e.target.value)} id='status'>
-                    <option value="Signle">Single</option>
+                    <option value="None">None</option>
+                    <option value="Single">Single</option>
                     <option value="Married">Married</option>
                     <option value="Widowed">Widowed</option>
                     <option value="Separated">Separated</option>
                     <option value="Divorced">Divorced</option>
                 </select>
                 <Input type={'text'} name={'Address'} placeholder={'Address'} value={props.address} setValue={props.setAdress} />
+                <Submit value={'Add Contact'} run={props.addContact} />
             </div>
             <div className='header-container'>
                 <div className='card'>

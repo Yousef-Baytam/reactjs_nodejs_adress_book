@@ -14,7 +14,7 @@ function App() {
   const [contacts, setContacts] = useState([])
   const [gotContacts, setGotContacts] = useState(false)
   const [fullName, setFullName] = useState('')
-  const [phone, setPhone] = useState()
+  const [phone, setPhone] = useState('')
   const [email, setEmail] = useState('')
   const [relationshipStatus, setRelationshipStatus] = useState('')
   const [address, setAddress] = useState('')
@@ -67,7 +67,7 @@ function App() {
           "fullName": fullName,
           "phone": phone,
           "email": email,
-          "relationshipStatus": relationshipStatus,
+          "relationshipStatus": relationshipStatus.toLowerCase(),
           "address": address
         },
         headers: {
@@ -156,7 +156,8 @@ function App() {
               relationshipStatus={relationshipStatus}
               setRelationshipStatus={setRelationshipStatus}
               address={address}
-              setAddress={setAddress} />}
+              setAddress={setAddress}
+              addContact={addContact} />}
           ></Route>
         </Routes>
       </div>
