@@ -4,6 +4,7 @@ import Auth from './pages/Auth'
 import './App.css'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
+import Contacts from './pages/Contacts'
 
 function App() {
   const navigate = useNavigate()
@@ -16,11 +17,15 @@ function App() {
       let res = await axios({
         url: `http://127.0.0.1:777/me`,
         method: "Get",
-        // headers: {
-        //   Cookie: `bearer ${ localStorage.getItem('token') }`
-        // },
+        headers: {
+          Authorization: `bearer ${ localStorage.getItem('token') }`
+        },
       })
-      console.log(res)
+      if (res.data.user) {
+        setLoggedIn(true)
+        setUser(res.data.user)
+        navigate('/contacts')
+      }
     }
     catch (e) {
       console.log(e);
@@ -28,7 +33,7 @@ function App() {
   }
 
   useEffect(() => {
-    handleAuthentication()
+    loggedIn ? navigate('/contacts') : handleAuthentication()
   }, [])
 
   return (
@@ -38,7 +43,11 @@ function App() {
         <Routes>
           <Route
             path="/"
-            element={<Auth />}
+            element={<Auth loggedIn={loggedIn} setLoggedIn={setLoggedIn} setUser={setUser} />}
+          ></Route>
+          <Route
+            path="/contacts"
+            element={<Contacts />}
           ></Route>
         </Routes>
       </div>

@@ -22,6 +22,8 @@ export default function Auth(props) {
                 },
             })
             console.log(res)
+            props.setLoggedIn(true)
+            localStorage.setItem('token', res.data.token.token)
         }
         catch (e) {
             console.log(e);
