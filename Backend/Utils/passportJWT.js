@@ -12,7 +12,7 @@ const opts = {
 
 module.exports = passport => {
     passport.use(new JwtStrategy(opts, (jwt_payload, done) => {
-        User.findOne({ id: jwt_payload.id }, function (err, user) {
+        User.findById(jwt_payload.id, function (err, user) {
             if (err) {
                 return done(err, false);
             }

@@ -37,8 +37,16 @@ app.use(passport.initialize())
 passport.use(new LocalStrategy(User.authenticate()))
 require('./Utils/passportJWT')(passport)
 
-passport.serializeUser(User.serializeUser())
+// passport.serializeUser(User.serializeUser())
 // passport.deserializeUser(User.deserializeUser())
+
+passport.serializeUser(function (user, done) {
+    done(null, user);
+});
+
+passport.deserializeUser(function (user, done) {
+    done(null, user);
+});
 
 app.use('/', authRoutes)
 app.use('/contacts', passport.authenticate('jwt', { session: false }), contactsRoutes)
