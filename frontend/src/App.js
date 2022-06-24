@@ -48,7 +48,7 @@ function App() {
           ></Route>
           <Route
             path="/contacts"
-            element={<Contacts />}
+            element={<Contacts loggedIn={loggedIn} user={user} contacts={contacts} setContacts={setContacts} />}
           ></Route>
         </Routes>
       </div>
