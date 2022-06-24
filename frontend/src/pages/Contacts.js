@@ -38,7 +38,7 @@ export default function Contacts(props) {
                     </button>
                 </div>
             </div>
-            <div className='form'>
+            <div className={`form ${ formDisplay ? 'expanded' : 'hidden' }`}>
                 <Input type={'text'} name={'Full Name'} placeholder={'Full Name'} value={props.fullName} setValue={props.setFullName} />
                 <Input type={'text'} name={'Email'} placeholder={'Email'} value={props.email} setValue={props.setEmail} />
                 <PhoneInput

@@ -50,6 +50,7 @@
 }
 
 .form {
+  overflow: hidden;
   transition: all 200ms ease;
 }
 
@@ -59,6 +60,6 @@
 }
 
 .expanded {
-  max-height: fit-content;
+  max-height: 500px;
   overflow: hidden;
 }
