@@ -81,6 +81,31 @@ function App() {
     }
   }
 
+  const patchContact = async () => {
+    try {
+      let res = await axios({
+        url: `http://127.0.0.1:777/contacts`,
+        method: "patch",
+        data: {
+          "fullName": fullName,
+          "phone": phone,
+          "email": email,
+          "relationshipStatus": relationshipStatus,
+          "address": address
+        },
+        headers: {
+          Authorization: `bearer ${ localStorage.getItem('token') }`
+        },
+      })
+      if (res.data.success) {
+        setContacts([...contacts, res.data.results])
+      }
+    }
+    catch (e) {
+      console.log(e);
+    }
+  }
+
   useEffect(() => {
     loggedIn ? navigate('/contacts') : localStorage.getItem('token') && handleAuthentication()
   }, [])
