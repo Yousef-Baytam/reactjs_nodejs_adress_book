@@ -1,5 +1,5 @@
-import { Route, Routes, useNavigate } from 'react-router-dom'
-import Header from './pages/Header'
+import { Route, Routes, useLocation, useNavigate } from 'react-router-dom'
+import Header from './components/Header'
 import Auth from './pages/Auth'
 import './App.css'
 import { useEffect, useState } from 'react'
@@ -8,6 +8,7 @@ import Contacts from './pages/Contacts'
 
 function App() {
   const navigate = useNavigate()
+  const location = useLocation()
   const [user, setUser] = useState({})
   const [loggedIn, setLoggedIn] = useState(false)
   const [contacts, setContacts] = useState([])
@@ -33,7 +34,7 @@ function App() {
   }
 
   useEffect(() => {
-    loggedIn ? navigate('/contacts') : handleAuthentication()
+    loggedIn ? navigate('/contacts') : localStorage.getItem('token') && handleAuthentication()
   }, [])
 
   return (

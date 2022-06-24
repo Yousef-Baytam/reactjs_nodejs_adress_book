@@ -24,6 +24,28 @@ export default function Auth(props) {
             console.log(res)
             props.setLoggedIn(true)
             localStorage.setItem('token', res.data.token.token)
+            navigate('/contacts')
+        }
+        catch (e) {
+            console.log(e);
+        }
+    }
+
+    const handleRegister = async () => {
+        try {
+            let res = await axios({
+                url: "http://127.0.0.1:777/register",
+                method: "POST",
+                data: {
+                    "username": username,
+                    "email": email,
+                    "password": password
+                },
+            })
+            console.log(res)
+            props.setLoggedIn(true)
+            localStorage.setItem('token', res.data.token.token)
+            navigate('/contacts')
         }
         catch (e) {
             console.log(e);
@@ -38,8 +60,8 @@ export default function Auth(props) {
                 </div>
                 <form>
                     <div>
-                        <Input type={'username'} name={'username'} placeholder={'Username'} value={username} setValue={setUsername} />
-                        <Input type={'password'} name={'password'} placeholder={'Password'} value={password} setValue={setPassword} />
+                        <Input type={'username'} name={'usernameLogin'} placeholder={'Username'} value={username} setValue={setUsername} />
+                        <Input type={'password'} name={'passwordLogin'} placeholder={'Password'} value={password} setValue={setPassword} />
                         <Submit value={'Login'} run={handleLogin} />
                         <div>Dont have an accout? <span>Register</span></div>
                     </div>
@@ -51,10 +73,10 @@ export default function Auth(props) {
                 </div>
                 <form>
                     <div>
-                        <Input type={'text'} name={'username'} placeholder={'Username'} value={username} setValue={setUsername} />
-                        <Input type={'email'} name={'email'} placeholder={'Email'} value={email} setValue={setEmail} />
-                        <Input type={'password'} name={'password'} placeholder={'Password'} value={password} setValue={setPassword} />
-                        <Submit value={'Sign up'} />
+                        <Input type={'text'} name={'usernameRegister'} placeholder={'Username'} value={username} setValue={setUsername} />
+                        <Input type={'email'} name={'emailRegister'} placeholder={'Email'} value={email} setValue={setEmail} />
+                        <Input type={'password'} name={'passwordRegister'} placeholder={'Password'} value={password} setValue={setPassword} />
+                        <Submit value={'Sign up'} run={handleRegister} />
                         <span>Back</span>
                     </div>
                 </form>
