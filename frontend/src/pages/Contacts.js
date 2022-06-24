@@ -9,6 +9,7 @@ export default function Contacts(props) {
     const navigate = useNavigate()
 
     const [search, setSearch] = useState('')
+    const [formDisplay, setFormDisplay] = useState(false)
 
     useEffect(() => {
         !props.loggedIn && navigate('/')
@@ -22,8 +23,8 @@ export default function Contacts(props) {
 
     return (
         <>
-            <div>
-                <div>
+            <div className='contacts-header-container'>
+                <div className='options'>
                     <div>
                         Filter
                     </div>
@@ -32,12 +33,12 @@ export default function Contacts(props) {
                     </div>
                 </div>
                 <div>
-                    <button>
+                    <button onClick={() => setFormDisplay(!formDisplay)}>
                         Add new Contact
                     </button>
                 </div>
             </div>
-            <div>
+            <div className='form'>
                 <Input type={'text'} name={'Full Name'} placeholder={'Full Name'} value={props.fullName} setValue={props.setFullName} />
                 <Input type={'text'} name={'Email'} placeholder={'Email'} value={props.email} setValue={props.setEmail} />
                 <PhoneInput

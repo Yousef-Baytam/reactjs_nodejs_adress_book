@@ -32,3 +32,33 @@
   min-width: 150px;
   text-align: center;
 }
+
+.contacts-header-container {
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.options {
+  display: flex;
+  align-items: center;
+}
+
+.options div {
+  padding: 0.3em 1em;
+}
+
+.form {
+  transition: all 200ms ease;
+}
+
+.hidden {
+  max-height: 0;
+  overflow: hidden;
+}
+
+.expanded {
+  max-height: fit-content;
+  overflow: hidden;
+}
