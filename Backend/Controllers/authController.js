@@ -1,4 +1,5 @@
 const User = require('../Models/user')
+const jwt = require('../Utils/jwtGen')
 
 module.exports.register = async (req, res, next) => {
     const user = new User(req.body)
@@ -7,11 +8,13 @@ module.exports.register = async (req, res, next) => {
 }
 
 module.exports.registerResponse = (req, res) => {
-    res.send({ 'response': 'success' })
+    const token = jwt(req.user)
+    res.send({ 'response': 'success', "user": req.user, "token": token })
 }
 
 module.exports.login = (req, res) => {
-    res.send({ 'response': 'success' })
+    const token = jwt(req.user)
+    res.send({ 'response': 'success', "user": req.user, "token": token })
 }
 
 module.exports.logout = (req, res, next) => {
