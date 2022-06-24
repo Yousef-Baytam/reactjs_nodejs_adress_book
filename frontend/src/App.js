@@ -12,6 +12,11 @@ function App() {
   const [user, setUser] = useState({})
   const [loggedIn, setLoggedIn] = useState(false)
   const [contacts, setContacts] = useState([])
+  const [fullName, setFullName] = useState('')
+  const [phone, setPhone] = useState('')
+  const [email, setEmail] = useState('')
+  const [relationshipStatus, setRelationshipStatus] = useState('')
+  const [address, setAddress] = useState('')
 
   const handleAuthentication = async () => {
     try {
@@ -51,9 +56,33 @@ function App() {
     }
   }
 
+  const addContact = async () => {
+    try {
+      let res = await axios({
+        url: `http://127.0.0.1:777/contacts`,
+        method: "post",
+        data: {
+          "fullName": fullName,
+          "phone": phone,
+          "email": email,
+          "relationshipStatus": relationshipStatus,
+          "address": address
+        },
+        headers: {
+          Authorization: `bearer ${ localStorage.getItem('token') }`
+        },
+      })
+      if (res.data.success) {
+        setContacts([...contacts, res.data.results])
+      }
+    }
+    catch (e) {
+      console.log(e);
+    }
+  }
+
   useEffect(() => {
     loggedIn ? navigate('/contacts') : localStorage.getItem('token') && handleAuthentication()
-    handleContacts()
   }, [])
 
   return (

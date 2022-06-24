@@ -6,15 +6,15 @@ module.exports.getContacts = async (req, res) => {
 }
 
 module.exports.addContacts = async (req, res) => {
-    const { fullName, phone, email, relationshipStatus, adress } = req.body
-    const contact = new Contact({ fullName, phone, email, relationshipStatus, adress, "owner": req.user })
+    const { fullName, phone, email, relationshipStatus, address } = req.body
+    const contact = new Contact({ fullName, phone, email, relationshipStatus, address, "owner": req.user })
     const result = await contact.save()
     res.send({ "success": true, "results": result })
 }
 
 module.exports.updateContacts = async (req, res) => {
-    const { fullName, phone, email, relationshipStatus, adress } = req.body
-    const contact = await Contact.findByIdAndUpdate(req.params.id, { fullName, phone, email, relationshipStatus, adress }, { new: true, runValidators: true })
+    const { fullName, phone, email, relationshipStatus, address } = req.body
+    const contact = await Contact.findByIdAndUpdate(req.params.id, { fullName, phone, email, relationshipStatus, address }, { new: true, runValidators: true })
     res.send({ "success": true, "results": contact })
 }
 
