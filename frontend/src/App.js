@@ -14,7 +14,7 @@ function App() {
   const [contacts, setContacts] = useState([])
   const [gotContacts, setGotContacts] = useState(false)
   const [fullName, setFullName] = useState('')
-  const [phone, setPhone] = useState('')
+  const [phone, setPhone] = useState()
   const [email, setEmail] = useState('')
   const [relationshipStatus, setRelationshipStatus] = useState('')
   const [address, setAddress] = useState('')
@@ -141,7 +141,22 @@ function App() {
           ></Route>
           <Route
             path="/contacts"
-            element={<Contacts loggedIn={loggedIn} user={user} contacts={contacts} setContacts={setContacts} handleContacts={handleContacts} gotContacts={gotContacts} />}
+            element={<Contacts loggedIn={loggedIn}
+              user={user}
+              contacts={contacts}
+              setContacts={setContacts}
+              handleContacts={handleContacts}
+              gotContacts={gotContacts}
+              fullName={fullName}
+              setFullName={setFullName}
+              email={email}
+              setEmail={setEmail}
+              phone={phone}
+              setPhone={setPhone}
+              relationshipStatus={relationshipStatus}
+              setRelationshipStatus={setRelationshipStatus}
+              address={address}
+              setAddress={setAddress} />}
           ></Route>
         </Routes>
       </div>
