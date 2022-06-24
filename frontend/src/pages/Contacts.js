@@ -45,7 +45,14 @@ export default function Contacts(props) {
                     placeholder="Enter phone number"
                     value={props.phone}
                     onChange={props.setPhone} />
-                <Input type={'text'} name={'relationshipStatus'} placeholder={'Relationship Status'} value={props.relationshipStatus} setValue={props.setRelationshipStatus} />
+                <label htmlFor='status'> Relationship Status</label><br />
+                <select value={props.relationshipStatus} onChange={(e) => props.setRelationshipStatus(e.target.value)} id='status'>
+                    <option value="Signle">Single</option>
+                    <option value="Married">Married</option>
+                    <option value="Widowed">Widowed</option>
+                    <option value="Separated">Separated</option>
+                    <option value="Divorced">Divorced</option>
+                </select>
                 <Input type={'text'} name={'Address'} placeholder={'Address'} value={props.address} setValue={props.setAdress} />
             </div>
             <div className='header-container'>
