@@ -60,7 +60,7 @@ export default function Auth(props) {
                 </div>
                 <form>
                     <div>
-                        <Input type={'username'} name={'usernameLogin'} placeholder={'Username'} value={username} setValue={setUsername} />
+                        <Input type={'text'} name={'usernameLogin'} placeholder={'Username'} value={username} setValue={setUsername} />
                         <Input type={'password'} name={'passwordLogin'} placeholder={'Password'} value={password} setValue={setPassword} />
                         <Submit value={'Login'} run={handleLogin} />
                         <div>Dont have an accout? <span>Register</span></div>

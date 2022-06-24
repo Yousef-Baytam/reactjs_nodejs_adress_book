@@ -1,9 +1,12 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import ContactsCard from '../components/ContactsCard'
+import Input from '../components/Input'
 
 export default function Contacts(props) {
     const navigate = useNavigate()
+
+    const [search, setSearch] = useState('')
 
     useEffect(() => {
         !props.loggedIn && navigate('/')
@@ -17,6 +20,21 @@ export default function Contacts(props) {
 
     return (
         <>
+            <div>
+                <div>
+                    <div>
+                        Filter
+                    </div>
+                    <div>
+                        <Input type={'text'} name={'Search'} placeholder={'Search'} value={search} setValue={setSearch} />
+                    </div>
+                </div>
+                <div>
+                    <button>
+                        Add new Contact
+                    </button>
+                </div>
+            </div>
             <div className='header-container'>
                 <div className='card'>
                     <div>
