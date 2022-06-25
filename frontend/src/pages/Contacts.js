@@ -50,12 +50,12 @@ export default function Contacts(props) {
                 setMapDisplay={setMapDisplay} />)
     }
 
-    const handleNameFilters = () => {
+    const handleFilters = () => {
         props.setFilters({ "name": nameFilter, "email": emailFilter, "phone": phoneFilter, "status": statusFilter })
     }
 
     useEffect(() => {
-        handleNameFilters()
+        handleFilters()
     }, [nameFilter, emailFilter, phoneFilter, statusFilter])
     return (
         <>
