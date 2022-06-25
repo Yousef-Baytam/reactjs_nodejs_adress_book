@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import ContactsCard from '../components/ContactsCard'
 import Input from '../components/Input'
@@ -12,7 +12,7 @@ import Filter from '../components/Filter'
 export default function Contacts(props) {
     const navigate = useNavigate()
 
-    const [search, setSearch] = useState('')
+    const mapRef = useRef()
     const [formDisplay, setFormDisplay] = useState(false)
     const [mapDisplay, setMapDisplay] = useState(false)
     const [nameFilter, setNameFilter] = useState({ "atr": 'contains', "value": '' })
@@ -23,7 +23,20 @@ export default function Contacts(props) {
     useEffect(() => {
         !props.loggedIn && navigate('/')
         props.handleContacts()
+
     }, [])
+
+    window.dispatchEvent(new Event('resize'))
+
+    // useEffect(() => {
+    //     const { current = {} } = mapRef
+    //     // const { leafletElement: map } = current
+    //     // current.invalidateSize()
+    //     setTimeout(() => {
+    //         current.flyTo(props.position, current.getZoom())
+    //     }, 500)
+    // }, [mapRef])
+
     const handleContacts = () => {
         if (props.gotContacts)
             return props.contacts.map((i) => <ContactsCard name={i.fullName}
@@ -94,7 +107,7 @@ export default function Contacts(props) {
                     <div className='close' onClick={() => { setMapDisplay(false) }}>
                         Close
                     </div>
-                    <MapContainer center={[33.8938, 35.5018]} zoom={10} scrollWheelZoom={true}>
+                    <MapContainer ref={mapRef} center={[33.8938, 35.5018]} zoom={14} scrollWheelZoom={true}>
                         <TileLayer
                             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                             attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
