@@ -5,12 +5,12 @@ export default function Filter(props) {
     const [val, setVal] = useState()
 
     return (
-        <div className={`dropdown-content ${ props.val }`}>
+        <div className={`dropdown-content ${ props.name }`}>
             <select value={atr} onChange={(e) => { setAtr(e.target.value); props.setNameFilter({ "atr": e.target.value, "value": val }) }} id='status'>
                 <option value="contains">Contains</option>
                 <option value="startsWith">Starts with</option>
                 <option value="endsWith">Ends with</option>
-            </select>
+            </select><br />
             <input type={'text'} name={props.name} placeholder={props.name} value={val} onChange={(e) => { setVal(e.target.value); props.setNameFilter({ "atr": atr, "value": e.target.value }) }} />
         </div>
 
