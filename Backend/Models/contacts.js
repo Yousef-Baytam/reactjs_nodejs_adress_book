@@ -36,7 +36,7 @@ const ContactsSchema = new Schema({
 
             },
             coordinates: {
-                type: [Number],
+
             }
         }
     },

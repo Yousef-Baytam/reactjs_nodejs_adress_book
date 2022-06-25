@@ -21,6 +21,7 @@ export default function Contacts(props) {
     }, [])
 
     const handleContacts = () => {
+        console.log(props.contacts)
         if (props.gotContacts)
             return props.contacts.map((i) => <ContactsCard name={i.fullName}
                 phone={i.phone}
@@ -29,7 +30,8 @@ export default function Contacts(props) {
                 address={i.address}
                 id={i.id}
                 key={i.id}
-                setPosition={props.setPosition} />)
+                setPosition={props.setPosition}
+                setMapDisplay={setMapDisplay} />)
     }
 
     return (

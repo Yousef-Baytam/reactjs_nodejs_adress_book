@@ -8,7 +8,6 @@ import Contacts from './pages/Contacts'
 
 function App() {
   const navigate = useNavigate()
-  const location = useLocation()
   const [user, setUser] = useState({})
   const [loggedIn, setLoggedIn] = useState(false)
   const [contacts, setContacts] = useState([])
@@ -17,7 +16,7 @@ function App() {
   const [phone, setPhone] = useState('')
   const [email, setEmail] = useState('')
   const [relationshipStatus, setRelationshipStatus] = useState('')
-  const [address, setAddress] = useState('')
+  const [address, setAddress] = useState(null)
   const [position, setPosition] = useState(null)
 
   const handleAuthentication = async () => {
