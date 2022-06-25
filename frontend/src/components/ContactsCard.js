@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
-import { Icon } from "leaflet";
-
+import { useMapEvents } from 'react-leaflet'
+import LocationMarker from './LocationMarker'
 
 export default function ContactsCard(props) {
+
     return (
         <div className='card-container' id={props.id} key={props.id}>
             <div className='card'>
@@ -25,6 +26,7 @@ export default function ContactsCard(props) {
                             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                             attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                         />
+                        <LocationMarker />
                     </MapContainer>
                     {/* {props.address.location ?? "Address not set"} */}
                 </div>
