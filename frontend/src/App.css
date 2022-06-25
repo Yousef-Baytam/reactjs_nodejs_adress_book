@@ -125,3 +125,12 @@
 #status:hover .Status {
   display: block;
 }
+
+.auth-container {
+  text-align: center;
+  height: 100vh;
+  width: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

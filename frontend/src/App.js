@@ -8,6 +8,7 @@ import Contacts from './pages/Contacts'
 
 function App() {
   const navigate = useNavigate()
+  const location = useLocation()
   const [user, setUser] = useState({})
   const [loggedIn, setLoggedIn] = useState(false)
   const [contacts, setContacts] = useState([])
@@ -139,7 +140,7 @@ function App() {
 
   return (
     <>
-      <Header />
+      {location.pathname != '/' && <Header />}
       <div className="App">
         <Routes>
           <Route

@@ -54,9 +54,9 @@ export default function Auth(props) {
 
     return (
         <>
-            <div>
+            <div className='auth-container'>
                 <div>
-                    Survey Champ
+                    My Phone Book
                 </div>
                 <form>
                     <div>
@@ -67,9 +67,9 @@ export default function Auth(props) {
                     </div>
                 </form>
             </div>
-            <div>
+            <div className='auth-container'>
                 <div>
-                    Survey Champ
+                    My Phone Book
                 </div>
                 <form>
                     <div>
