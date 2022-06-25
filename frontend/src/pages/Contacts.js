@@ -38,13 +38,12 @@ export default function Contacts(props) {
     }
 
     const handleNameFilters = () => {
-        // name: {
-        //     atr
-        //     value
-        // }, 
-
+        props.setFilters({ "name": nameFilter, "email": emailFilter, "phone": phoneFilter, "status": statusFilter })
     }
 
+    useEffect(() => {
+        handleNameFilters()
+    }, [nameFilter, emailFilter, phoneFilter, statusFilter])
     return (
         <>
 
@@ -52,10 +51,10 @@ export default function Contacts(props) {
             <div className='contacts-header-container'>
                 <div className='options'>
                     <div>
-                        Add Filter
+                        Apply Filters
                     </div>
                     <div>
-                        <Input type={'text'} name={'Search'} placeholder={'Search'} value={search} setValue={setSearch} />
+                        Clear Filters
                     </div>
                 </div>
                 <div>
@@ -114,13 +113,19 @@ export default function Contacts(props) {
                         </i>
                     </div>
                     <div>
-                        Email <i class="fa-solid fa-filter" id='email'></i>
+                        Email <i class="fa-solid fa-filter" id='email'>
+                            <Filter name={"Email"} setNameFilter={setEmailFilter} />
+                        </i>
                     </div>
                     <div>
-                        Phone Number <i class="fa-solid fa-filter" id='phone'></i>
+                        Phone Number <i class="fa-solid fa-filter" id='phone'>
+                            <Filter name={"Phone"} setNameFilter={setPhoneFilter} />
+                        </i>
                     </div>
                     <div>
-                        Relationship Status <i class="fa-solid fa-filter" id='status'></i>
+                        Relationship Status <i class="fa-solid fa-filter" id='status'>
+                            <Filter name={"Status"} setNameFilter={setStatusFilter} />
+                        </i>
                     </div>
                     <div>
                         Adress

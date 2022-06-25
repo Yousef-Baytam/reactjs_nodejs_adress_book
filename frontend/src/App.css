@@ -113,3 +113,15 @@
 #name:hover .Name {
   display: block;
 }
+
+#email:hover .Email {
+  display: block;
+}
+
+#phone:hover .Phone {
+  display: block;
+}
+
+#status:hover .Status {
+  display: block;
+}
