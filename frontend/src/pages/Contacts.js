@@ -13,6 +13,8 @@ export default function Contacts(props) {
 
     const [search, setSearch] = useState('')
     const [formDisplay, setFormDisplay] = useState(false)
+    const [position, setPosition] = useState(null)
+    const [mapDisplay, setMapDisplay] = useState(false)
 
     useEffect(() => {
         !props.loggedIn && navigate('/')
@@ -21,7 +23,14 @@ export default function Contacts(props) {
 
     const handleContacts = () => {
         if (props.gotContacts)
-            return props.contacts.map((i) => <ContactsCard name={i.fullName} phone={i.phone} email={i.email} status={i.relationshipStatus} address={i.address} id={i.id} key={i.id} />)
+            return props.contacts.map((i) => <ContactsCard name={i.fullName}
+                phone={i.phone}
+                email={i.email}
+                status={i.relationshipStatus}
+                address={i.address}
+                id={i.id}
+                key={i.id}
+                setPosition={setPosition} />)
     }
 
     return (
@@ -58,15 +67,21 @@ export default function Contacts(props) {
                     <option value="Divorced">Divorced</option>
                 </select>
                 <Input type={'text'} name={'Address'} placeholder={'Address'} value={props.address} setValue={props.setAdress} />
+                <div onClick={() => { setMapDisplay(true) }}>
+                    Pick a location
+                </div>
                 <Submit value={'Add Contact'} run={props.addContact} />
             </div>
-            <div className='map'>
+            <div className={`map ${ mapDisplay ? '' : 'd-none' }`}>
                 <MapContainer center={[33.8938, 35.5018]} zoom={12} scrollWheelZoom={false}>
                     <TileLayer
                         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                     />
-                    <LocationMarker />
+                    {/* <Marker position={ }>
+                        <Popup>You are here</Popup>
+                    </Marker> */}
+                    {/* <LocationMarker /> */}
                 </MapContainer>
             </div>
             <div className='header-container'>
