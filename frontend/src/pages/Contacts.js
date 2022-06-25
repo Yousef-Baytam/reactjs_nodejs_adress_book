@@ -5,6 +5,8 @@ import Input from '../components/Input'
 import 'react-phone-number-input/style.css'
 import PhoneInput from 'react-phone-number-input'
 import Submit from '../components/Submit'
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import LocationMarker from '../components/LocationMarker'
 
 export default function Contacts(props) {
     const navigate = useNavigate()
@@ -57,6 +59,15 @@ export default function Contacts(props) {
                 </select>
                 <Input type={'text'} name={'Address'} placeholder={'Address'} value={props.address} setValue={props.setAdress} />
                 <Submit value={'Add Contact'} run={props.addContact} />
+            </div>
+            <div className='map'>
+                <MapContainer center={[33.8938, 35.5018]} zoom={12} scrollWheelZoom={false}>
+                    <TileLayer
+                        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                        attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+                    />
+                    <LocationMarker />
+                </MapContainer>
             </div>
             <div className='header-container'>
                 <div className='card'>
