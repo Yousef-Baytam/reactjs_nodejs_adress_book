@@ -21,7 +21,6 @@ export default function Contacts(props) {
     }, [])
 
     const handleContacts = () => {
-        console.log(props.contacts)
         if (props.gotContacts)
             return props.contacts.map((i) => <ContactsCard name={i.fullName}
                 phone={i.phone}
@@ -72,24 +71,26 @@ export default function Contacts(props) {
                     <option value="Divorced">Divorced</option>
                 </select>
                 <Input type={'text'} name={'Address'} placeholder={'Address'} value={props.address} setValue={props.setAddress} />
-                <div onClick={() => { setMapDisplay(true) }} style={{ color: props.position ? 'green' : 'red' }}>
+                <div onClick={() => { setMapDisplay(true); }} style={{ color: props.position ? 'green' : 'red' }}>
                     Pick a location
                 </div>
                 <Submit value={'Add Contact'} run={props.addContact} />
             </div>
 
             {/* Map */}
-            <div className={`map ${ mapDisplay ? '' : 'd-none' }`}>
-                <div className='close' onClick={() => { setMapDisplay(false) }}>
-                    Close
+            <div className={`mapBG ${ mapDisplay ? '' : 'd-none' }`}>
+                <div className={`map ${ mapDisplay ? '' : 'd-none' }`}>
+                    <div className='close' onClick={() => { setMapDisplay(false) }}>
+                        Close
+                    </div>
+                    <MapContainer center={[33.8938, 35.5018]} zoom={10} scrollWheelZoom={true}>
+                        <TileLayer
+                            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                            attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+                        />
+                        <LocationMarker setPosition={props.setPosition} position={props.position} />
+                    </MapContainer>
                 </div>
-                <MapContainer center={[33.8938, 35.5018]} zoom={10} scrollWheelZoom={true}>
-                    <TileLayer
-                        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                        attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-                    />
-                    <LocationMarker setPosition={props.setPosition} position={props.position} />
-                </MapContainer>
             </div>
 
             {/* contacts header  */}
