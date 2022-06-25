@@ -7,6 +7,7 @@ import PhoneInput from 'react-phone-number-input'
 import Submit from '../components/Submit'
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import LocationMarker from '../components/LocationMarker'
+import Filter from '../components/Filter'
 
 export default function Contacts(props) {
     const navigate = useNavigate()
@@ -14,16 +15,15 @@ export default function Contacts(props) {
     const [search, setSearch] = useState('')
     const [formDisplay, setFormDisplay] = useState(false)
     const [mapDisplay, setMapDisplay] = useState(false)
-    const [nameFilter, setNameFilter] = useState(null)
-    const [emailFilter, setEmailFilter] = useState(null)
-    const [phoneFilter, setPhoneFilter] = useState(null)
-    const [statusFilter, setStatusFilter] = useState(null)
+    const [nameFilter, setNameFilter] = useState({ "atr": 'contains', "value": '' })
+    const [emailFilter, setEmailFilter] = useState({ "atr": 'contains', "value": '' })
+    const [phoneFilter, setPhoneFilter] = useState({ "atr": 'contains', "value": '' })
+    const [statusFilter, setStatusFilter] = useState({ "atr": 'contains', "value": '' })
 
     useEffect(() => {
         !props.loggedIn && navigate('/')
         props.handleContacts()
     }, [])
-
     const handleContacts = () => {
         if (props.gotContacts)
             return props.contacts.map((i) => <ContactsCard name={i.fullName}
@@ -37,7 +37,7 @@ export default function Contacts(props) {
                 setMapDisplay={setMapDisplay} />)
     }
 
-    const handleFilters = () => {
+    const handleNameFilters = () => {
         // name: {
         //     atr
         //     value
@@ -110,9 +110,7 @@ export default function Contacts(props) {
                 <div className='card'>
                     <div>
                         Full Name <i class="fa-solid fa-filter" id='name'>
-                            <div class="dropdown-content-name">
-                                <p>Hello World!</p>
-                            </div>
+                            <Filter name={"Name"} setNameFilter={setNameFilter} />
                         </i>
                     </div>
                     <div>

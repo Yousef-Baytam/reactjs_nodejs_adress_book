@@ -18,7 +18,12 @@ function App() {
   const [relationshipStatus, setRelationshipStatus] = useState('')
   const [address, setAddress] = useState(null)
   const [position, setPosition] = useState(null)
-  const [filters, setFilters] = useState(null)
+  const [filters, setFilters] = useState({
+    'name': { 'art': 'contains', 'value': '' },
+    'email': { 'art': 'contains', 'value': '' },
+    'phone': { 'art': 'contains', 'value': '' },
+    'status': { 'art': 'contains', 'value': '' }
+  })
 
   const handleAuthentication = async () => {
     try {
