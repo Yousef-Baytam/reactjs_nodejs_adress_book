@@ -19,7 +19,7 @@ export default function ContactsCard(props) {
                     {props.status}
                 </div>
                 <div>
-                    {props.address.location ? props.setPosition(props.address.geometry.coordicates) : "Address not set"}
+                    {props.address.location ? props.address.location : "Address not set"}
                 </div>
             </div>
         </div>

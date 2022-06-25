@@ -34,6 +34,8 @@ export default function Contacts(props) {
 
     return (
         <>
+
+            {/* header tools  */}
             <div className='contacts-header-container'>
                 <div className='options'>
                     <div>
@@ -49,6 +51,8 @@ export default function Contacts(props) {
                     </button>
                 </div>
             </div>
+
+            {/* new contact form */}
             <div className={`form ${ formDisplay ? 'expanded' : 'hidden' }`}>
                 <Input type={'text'} name={'Full Name'} placeholder={'Full Name'} value={props.fullName} setValue={props.setFullName} />
                 <Input type={'text'} name={'Email'} placeholder={'Email'} value={props.email} setValue={props.setEmail} />
@@ -65,12 +69,14 @@ export default function Contacts(props) {
                     <option value="Separated">Separated</option>
                     <option value="Divorced">Divorced</option>
                 </select>
-                <Input type={'text'} name={'Address'} placeholder={'Address'} value={props.address} setValue={props.setAdress} />
-                <div onClick={() => { setMapDisplay(true) }}>
+                <Input type={'text'} name={'Address'} placeholder={'Address'} value={props.address} setValue={props.setAddress} />
+                <div onClick={() => { setMapDisplay(true) }} style={{ color: props.position ? 'green' : 'red' }}>
                     Pick a location
                 </div>
                 <Submit value={'Add Contact'} run={props.addContact} />
             </div>
+
+            {/* Map */}
             <div className={`map ${ mapDisplay ? '' : 'd-none' }`}>
                 <div className='close' onClick={() => { setMapDisplay(false) }}>
                     Close
@@ -83,6 +89,8 @@ export default function Contacts(props) {
                     <LocationMarker setPosition={props.setPosition} position={props.position} />
                 </MapContainer>
             </div>
+
+            {/* contacts header  */}
             <div className='header-container'>
                 <div className='card'>
                     <div>

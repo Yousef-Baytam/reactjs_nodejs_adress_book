@@ -69,7 +69,13 @@ function App() {
           "phone": phone,
           "email": email,
           "relationshipStatus": relationshipStatus.toLowerCase(),
-          "address": address
+          "address": {
+            "location": address,
+            "geometry": {
+              "type": "point",
+              "coordinates": position
+            }
+          }
         },
         headers: {
           Authorization: `bearer ${ localStorage.getItem('token') }`
