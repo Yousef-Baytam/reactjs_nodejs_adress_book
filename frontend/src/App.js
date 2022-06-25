@@ -128,7 +128,7 @@ function App() {
 
   useEffect(() => {
     loggedIn ? navigate('/contacts') : localStorage.getItem('token') && handleAuthentication()
-  }, [])
+  }, [loggedIn])
 
   return (
     <>
