@@ -35,9 +35,7 @@ const ContactsSchema = new Schema({
                 enum: ['point'],
 
             },
-            coordinates: {
-
-            }
+            coordinates: {}
         }
     },
     owner: {

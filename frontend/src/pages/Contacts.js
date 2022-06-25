@@ -14,6 +14,10 @@ export default function Contacts(props) {
     const [search, setSearch] = useState('')
     const [formDisplay, setFormDisplay] = useState(false)
     const [mapDisplay, setMapDisplay] = useState(false)
+    const [nameFilter, setNameFilter] = useState(null)
+    const [emailFilter, setEmailFilter] = useState(null)
+    const [phoneFilter, setPhoneFilter] = useState(null)
+    const [statusFilter, setStatusFilter] = useState(null)
 
     useEffect(() => {
         !props.loggedIn && navigate('/')
@@ -33,6 +37,14 @@ export default function Contacts(props) {
                 setMapDisplay={setMapDisplay} />)
     }
 
+    const handleFilters = () => {
+        // name: {
+        //     atr
+        //     value
+        // }, 
+
+    }
+
     return (
         <>
 
@@ -40,7 +52,7 @@ export default function Contacts(props) {
             <div className='contacts-header-container'>
                 <div className='options'>
                     <div>
-                        Filter
+                        Add Filter
                     </div>
                     <div>
                         <Input type={'text'} name={'Search'} placeholder={'Search'} value={search} setValue={setSearch} />
@@ -97,16 +109,20 @@ export default function Contacts(props) {
             <div className='header-container'>
                 <div className='card'>
                     <div>
-                        Full Name
+                        Full Name <i class="fa-solid fa-filter" id='name'>
+                            <div class="dropdown-content-name">
+                                <p>Hello World!</p>
+                            </div>
+                        </i>
                     </div>
                     <div>
-                        Email
+                        Email <i class="fa-solid fa-filter" id='email'></i>
                     </div>
                     <div>
-                        Phone Number
+                        Phone Number <i class="fa-solid fa-filter" id='phone'></i>
                     </div>
                     <div>
-                        Relationship Status
+                        Relationship Status <i class="fa-solid fa-filter" id='status'></i>
                     </div>
                     <div>
                         Adress

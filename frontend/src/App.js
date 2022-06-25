@@ -18,6 +18,7 @@ function App() {
   const [relationshipStatus, setRelationshipStatus] = useState('')
   const [address, setAddress] = useState(null)
   const [position, setPosition] = useState(null)
+  const [filters, setFilters] = useState(null)
 
   const handleAuthentication = async () => {
     try {
@@ -164,7 +165,10 @@ function App() {
               address={address}
               setAddress={setAddress}
               addContact={addContact}
-              setPosition={setPosition} position={position} />}
+              setPosition={setPosition}
+              position={position}
+              filters={filters}
+              setFilters={setFilters} />}
           ></Route>
         </Routes>
       </div>
