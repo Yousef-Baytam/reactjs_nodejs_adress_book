@@ -76,12 +76,12 @@ export default function Contacts(props) {
                 <div className='close' onClick={() => { setMapDisplay(false) }}>
                     Close
                 </div>
-                <MapContainer center={[33.8938, 35.5018]} zoom={14} scrollWheelZoom={false}>
+                <MapContainer center={[33.8938, 35.5018]} zoom={10} scrollWheelZoom={true}>
                     <TileLayer
                         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                     />
-                    {/* <LocationMarker /> */}
+                    <LocationMarker setPosition={setPosition} position={position} />
                 </MapContainer>
             </div>
             <div className='header-container'>
