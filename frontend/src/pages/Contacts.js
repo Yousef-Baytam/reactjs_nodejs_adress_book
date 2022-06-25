@@ -13,7 +13,6 @@ export default function Contacts(props) {
 
     const [search, setSearch] = useState('')
     const [formDisplay, setFormDisplay] = useState(false)
-    const [position, setPosition] = useState(null)
     const [mapDisplay, setMapDisplay] = useState(false)
 
     useEffect(() => {
@@ -30,7 +29,7 @@ export default function Contacts(props) {
                 address={i.address}
                 id={i.id}
                 key={i.id}
-                setPosition={setPosition} />)
+                setPosition={props.setPosition} />)
     }
 
     return (
@@ -81,7 +80,7 @@ export default function Contacts(props) {
                         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                     />
-                    <LocationMarker setPosition={setPosition} position={position} />
+                    <LocationMarker setPosition={props.setPosition} position={props.position} />
                 </MapContainer>
             </div>
             <div className='header-container'>
