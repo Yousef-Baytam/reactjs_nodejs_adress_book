@@ -73,14 +73,14 @@ export default function Contacts(props) {
                 <Submit value={'Add Contact'} run={props.addContact} />
             </div>
             <div className={`map ${ mapDisplay ? '' : 'd-none' }`}>
-                <MapContainer center={[33.8938, 35.5018]} zoom={12} scrollWheelZoom={false}>
+                <div className='close' onClick={() => { setMapDisplay(false) }}>
+                    Close
+                </div>
+                <MapContainer center={[33.8938, 35.5018]} zoom={14} scrollWheelZoom={false}>
                     <TileLayer
                         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                     />
-                    {/* <Marker position={ }>
-                        <Popup>You are here</Popup>
-                    </Marker> */}
                     {/* <LocationMarker /> */}
                 </MapContainer>
             </div>
