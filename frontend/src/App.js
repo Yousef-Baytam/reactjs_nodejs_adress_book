@@ -12,6 +12,7 @@ function App() {
   const [user, setUser] = useState({})
   const [loggedIn, setLoggedIn] = useState(false)
   const [contacts, setContacts] = useState([])
+  const [contactsCopy, setContactsCopy] = useState([])
   const [gotContacts, setGotContacts] = useState(false)
   const [fullName, setFullName] = useState('')
   const [phone, setPhone] = useState('')
@@ -53,6 +54,7 @@ function App() {
       if (res.data.results) {
         setContacts(res.data.results)
         setGotContacts(true)
+        setContactsCopy(res.data.results)
       }
     }
     catch (e) {
@@ -84,6 +86,7 @@ function App() {
       })
       if (res.data.success) {
         setContacts([...contacts, res.data.results])
+        setContactsCopy([...contacts, res.data.results])
       }
     }
     catch (e) {
@@ -169,7 +172,8 @@ function App() {
               setPosition={setPosition}
               position={position}
               filters={filters}
-              setFilters={setFilters} />}
+              setFilters={setFilters}
+              contactsCopy={contactsCopy} />}
           ></Route>
         </Routes>
       </div>
