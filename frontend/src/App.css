@@ -7,6 +7,16 @@
   flex-direction: column;
   align-items: center;
   overflow-x: hidden;
+
+}
+
+.body {
+  background-image: url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/intermediary/f/61f7685f-47e5-49a0-b5cb-ca6b8cab4228/drok89-a7a2a550-ba87-40a6-9701-b635550d55b3.jpg');
+  background-repeat: repeat;
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+  color: black;
 }
 
 .header-container {
@@ -16,6 +26,7 @@
   padding-bottom: 1em;
   margin-bottom: 1em;
   border-bottom: 1px solid rgba(0, 0, 0, 0.301);
+  font-weight: bold;
 }
 
 .space {
@@ -34,6 +45,7 @@
   width: 80%;
   display: flex;
   align-items: center;
+  font-weight: bold;
 }
 
 .card {
@@ -165,7 +177,7 @@
 
 form {
   width: fit-content;
-  background-color: maroon;
+  background-color: rgb(3, 145, 201);
   color: white;
   height: fit-content;
   padding: 1em;
@@ -225,19 +237,18 @@ input[type='submit']:hover {
   padding: 1em 5em;
 }
 
-.button,
-.filter-action {
+.button {
   cursor: pointer;
   padding: 0.3em 1em;
   width: fit-content;
   border-radius: 5px;
-  background-color: maroon;
+  background-color: rgb(3, 145, 201);
   color: white;
   transition: all 200ms ease;
 }
 
 .button:hover {
-  background-color: rgb(91, 0, 0);
+  background-color: rgb(0, 104, 145);
 }
 
 .contacts-header-container {
@@ -245,8 +256,13 @@ input[type='submit']:hover {
 }
 
 .filter-action {
-  background-color: white;
-  color: green;
+  cursor: pointer;
+  padding: 0.3em 1em;
+  width: fit-content;
+  border-radius: 5px;
+  color: rgb(0, 184, 0);
+  transition: all 200ms ease;
+  font-weight: bold;
 }
 
 .red {

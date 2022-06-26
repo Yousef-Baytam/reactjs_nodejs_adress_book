@@ -112,15 +112,15 @@ export default function Contacts(props) {
             <div className='contacts-header-container'>
                 <div className='options'>
                     <div onClick={() => { handleApplyFilter() }} className='filter-action'>
-                        Apply Filters
+                        Apply Filters <i class="fa-solid fa-circle-check"></i>
                     </div>
                     <div onClick={() => { handleClearFilter(); setClearSignal(!clearSignal) }} className='filter-action red'>
-                        Clear Filters
+                        Clear Filters <i class="fa-solid fa-filter-circle-xmark"></i>
                     </div>
                 </div>
                 <div>
                     <button onClick={() => setFormDisplay(!formDisplay)} className='button'>
-                        Add new Contact
+                        <i class="fa-solid fa-plus"></i>  New Contact
                     </button>
                 </div>
             </div>
