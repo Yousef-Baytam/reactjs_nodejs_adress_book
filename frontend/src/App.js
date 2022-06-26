@@ -136,6 +136,7 @@ function App() {
       })
       console.log(res)
       setContacts(contacts.filter((e) => e._id != id))
+      setContactsCopy(contacts.filter((e) => e._id != id))
     }
     catch (e) {
       console.log(e);
