@@ -12,7 +12,7 @@ export default function Header(props) {
     }
     return (
         <div>
-            <div>
+            <div onClick={() => { navigate('/contacts') }}>
                 All Contacts
             </div>
             <div onClick={() => { handleLogout() }}>
