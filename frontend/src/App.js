@@ -87,6 +87,12 @@ function App() {
       if (res.data.success) {
         setContacts([...contacts, res.data.results])
         setContactsCopy([...contacts, res.data.results])
+        setFullName('')
+        setPhone('')
+        setEmail('')
+        setRelationshipStatus('')
+        setAddress(null)
+        setPosition(null)
       }
     }
     catch (e) {

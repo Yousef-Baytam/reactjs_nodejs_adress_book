@@ -21,7 +21,7 @@ export default function ContactsCard(props) {
                 <div onClick={() => {
                     props.address && props.setPosition(props.address.geometry.coordinates);
                     props.address && props.setMapDisplay(true)
-                }}>
+                }} style={{ cursor: 'pointer' }}>
                     {props.address ? props.address.location : "Address not set"}
                 </div>
             </div>
