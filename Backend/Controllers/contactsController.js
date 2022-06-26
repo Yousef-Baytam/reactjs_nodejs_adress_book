@@ -6,7 +6,6 @@ module.exports.getContacts = async (req, res) => {
 }
 
 module.exports.addContacts = async (req, res) => {
-    console.log(req.body)
     const { fullName, phone, email, relationshipStatus, address } = req.body
     const contact = new Contact({ fullName, phone, email, relationshipStatus, address, "owner": req.user })
     const result = await contact.save()
