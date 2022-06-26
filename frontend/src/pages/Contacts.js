@@ -174,22 +174,22 @@ export default function Contacts(props) {
                 <div className='card'>
                     <div className='space'></div>
                     <div>
-                        Full Name <i class="fa-solid fa-filter" id='name'>
+                        Full Name <i class="fa-solid fa-filter" id='name' style={{ color: nameFilter.value.length > 0 && '#90EE90' }}>
                             <Filter name={"Name"} setNameFilter={setNameFilter} clearSignal={clearSignal} />
                         </i>
                     </div>
                     <div>
-                        Email <i class="fa-solid fa-filter" id='email'>
+                        Email <i class="fa-solid fa-filter" id='email' style={{ color: emailFilter.value.length > 0 && '#90EE90' }}>
                             <Filter name={"Email"} setNameFilter={setEmailFilter} clearSignal={clearSignal} />
                         </i>
                     </div>
                     <div>
-                        Phone Number <i class="fa-solid fa-filter" id='phone'>
+                        Phone Number <i class="fa-solid fa-filter" id='phone' style={{ color: phoneFilter.value.length > 0 && '#90EE90' }} >
                             <Filter name={"Phone"} setNameFilter={setPhoneFilter} clearSignal={clearSignal} />
                         </i>
                     </div>
                     <div>
-                        Relationship Status <i class="fa-solid fa-filter" id='status'>
+                        Relationship Status <i class="fa-solid fa-filter" id='status' style={{ color: statusFilter.value.length > 0 && '#90EE90' }}>
                             <Filter name={"Status"} setNameFilter={setStatusFilter} clearSignal={clearSignal} />
                         </i>
                     </div>

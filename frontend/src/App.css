@@ -282,6 +282,10 @@ select {
 
 }
 
+.fa-filter {
+  cursor: pointer;
+}
+
 .translate {
   transform: translateX(500%);
   display: none;
