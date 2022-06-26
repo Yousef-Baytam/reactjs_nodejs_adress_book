@@ -181,7 +181,8 @@ form-content {
   padding: 1em 5em;
 }
 
-.button {
+.button,
+.filter-action {
   cursor: pointer;
   padding: 0.3em 1em;
   width: fit-content;
@@ -193,6 +194,23 @@ form-content {
 
 .button:hover {
   background-color: rgb(91, 0, 0);
+}
+
+.contacts-header-container {
+  padding: 0 5em 2em 5em;
+}
+
+.filter-action {
+  background-color: white;
+  color: green;
+}
+
+.red {
+  color: red;
+}
+
+.filter-action:hover {
+  transform: scale(1.1);
 }
 
 .translate {
