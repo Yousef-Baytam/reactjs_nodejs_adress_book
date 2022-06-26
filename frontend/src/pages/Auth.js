@@ -58,20 +58,15 @@ export default function Auth(props) {
                 <div>
                     My Phone Book
                 </div>
-                <form>
-                    <div>
+                <form className=''>
+                    <div className='form-content'>
                         <Input type={'text'} name={'usernameLogin'} placeholder={'Username'} value={username} setValue={setUsername} />
                         <Input type={'password'} name={'passwordLogin'} placeholder={'Password'} value={password} setValue={setPassword} />
                         <Submit value={'Login'} run={handleLogin} />
                         <div>Dont have an accout? <span>Register</span></div>
                     </div>
                 </form>
-            </div>
-            <div className='auth-container'>
-                <div>
-                    My Phone Book
-                </div>
-                <form>
+                <form className=''>
                     <div>
                         <Input type={'text'} name={'usernameRegister'} placeholder={'Username'} value={username} setValue={setUsername} />
                         <Input type={'email'} name={'emailRegister'} placeholder={'Email'} value={email} setValue={setEmail} />
