@@ -63,7 +63,7 @@ export default function Auth(props) {
                         <Input type={'text'} name={'usernameLogin'} placeholder={'Username'} value={username} setValue={setUsername} />
                         <Input type={'password'} name={'passwordLogin'} placeholder={'Password'} value={password} setValue={setPassword} />
                         <Submit value={'Login'} run={handleLogin} />
-                        <div>Dont have an accout? <span>Register</span></div>
+                        <div className='form-footer'>Dont have an accout? <span className='form-action'>Register</span></div>
                     </div>
                 </form>
                 <form className=''>
@@ -72,7 +72,7 @@ export default function Auth(props) {
                         <Input type={'email'} name={'emailRegister'} placeholder={'Email'} value={email} setValue={setEmail} />
                         <Input type={'password'} name={'passwordRegister'} placeholder={'Password'} value={password} setValue={setPassword} />
                         <Submit value={'Sign up'} run={handleRegister} />
-                        <span>Back</span>
+                        <span className='form-footer form-action'>Back</span>
                     </div>
                 </form>
             </div>

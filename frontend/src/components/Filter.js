@@ -9,7 +9,6 @@ export default function Filter(props) {
         setVal('')
     }, [props.clearSignal])
 
-
     return (
         <div className={`dropdown-content ${ props.name }`}>
             <select value={atr} onChange={(e) => { setAtr(e.target.value); props.setNameFilter({ "atr": e.target.value, "value": val }) }} id='status'>

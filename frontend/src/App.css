@@ -157,3 +157,13 @@ form-content {
 .action {
   padding-top: 2em;
 }
+
+.form-action {
+  color: red;
+  cursor: pointer;
+}
+
+.form-footer {
+  padding-top: 1em;
+  font-size: 0.7em;
+}
