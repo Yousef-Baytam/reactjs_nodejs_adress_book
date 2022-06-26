@@ -172,6 +172,7 @@ export default function Contacts(props) {
             {/* contacts header  */}
             <div className='header-container'>
                 <div className='card'>
+                    <div className='space'></div>
                     <div>
                         Full Name <i class="fa-solid fa-filter" id='name'>
                             <Filter name={"Name"} setNameFilter={setNameFilter} clearSignal={clearSignal} />
@@ -195,6 +196,7 @@ export default function Contacts(props) {
                     <div>
                         Adress
                     </div>
+                    <div className='space'></div>
                 </div>
             </div>
             <div className='container'>
