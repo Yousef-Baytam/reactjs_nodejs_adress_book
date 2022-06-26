@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow-x: hidden;
 }
 
 .header-container {
@@ -136,7 +137,7 @@
 }
 
 form {
-  width: 300px;
+  width: fit-content;
   background-color: #e6e6e6;
   height: fit-content;
   padding: 1em;
@@ -166,4 +167,47 @@ form-content {
 .form-footer {
   padding-top: 1em;
   font-size: 0.7em;
+}
+
+.translate {
+  transform: translateX(500%);
+  display: none;
+}
+
+.fade-out {
+  animation: fade 100ms linear forwards;
+}
+
+.fade-in {
+  animation: fade 100ms linear reverse;
+}
+
+.slide-in {
+  animation: slide 200ms ease-in-out reverse;
+}
+
+.slide-out {
+  animation: slide 200ms ease-in-out forwards;
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(0%);
+  }
+
+  100% {
+    transform: translateX(300%);
+  }
+}
+
+@keyframes fade {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(0.75);
+  }
 }
