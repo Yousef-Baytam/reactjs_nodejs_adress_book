@@ -152,7 +152,7 @@ form {
   justify-content: space-between;
 }
 
-form-content {
+.form-content {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -211,6 +211,14 @@ form-content {
 
 .filter-action:hover {
   transform: scale(1.1);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2em;
 }
 
 .translate {

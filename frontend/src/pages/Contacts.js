@@ -128,22 +128,27 @@ export default function Contacts(props) {
             <div className={`form ${ formDisplay ? 'expanded' : 'hidden' }`}>
                 <Input type={'text'} name={'Full Name'} placeholder={'Full Name'} value={props.fullName} setValue={props.setFullName} />
                 <Input type={'text'} name={'Email'} placeholder={'Email'} value={props.email} setValue={props.setEmail} />
-                <PhoneInput
-                    placeholder="Enter phone number"
-                    value={props.phone}
-                    onChange={props.setPhone} />
-                <label htmlFor='status'> Relationship Status</label><br />
-                <select value={props.relationshipStatus} onChange={(e) => props.setRelationshipStatus(e.target.value)} id='status'>
-                    <option value="None">None</option>
-                    <option value="Single">Single</option>
-                    <option value="Married">Married</option>
-                    <option value="Widowed">Widowed</option>
-                    <option value="Separated">Separated</option>
-                    <option value="Divorced">Divorced</option>
-                </select>
+                <div>
+                    <label>Phone</label>
+                    <PhoneInput
+                        placeholder="Enter phone number"
+                        value={props.phone}
+                        onChange={props.setPhone} />
+                </div>
+                <div>
+                    <label htmlFor='status'> Relationship Status</label><br />
+                    <select value={props.relationshipStatus} onChange={(e) => props.setRelationshipStatus(e.target.value)} id='status'>
+                        <option value="None">None</option>
+                        <option value="Single">Single</option>
+                        <option value="Married">Married</option>
+                        <option value="Widowed">Widowed</option>
+                        <option value="Separated">Separated</option>
+                        <option value="Divorced">Divorced</option>
+                    </select>
+                </div>
                 <Input type={'text'} name={'Address'} placeholder={'Address'} value={props.address} setValue={props.setAddress} />
-                <div onClick={() => { setMapDisplay(true); }} style={{ color: props.position ? 'green' : 'red' }}>
-                    Pick a location
+                <div onClick={() => { setMapDisplay(true); }} style={{ color: props.position ? 'green' : 'red', cursor: "pointer" }}>
+                    Pick a location  <i class="fa-solid fa-location-dot"></i>
                 </div>
                 <Submit value={'Add Contact'} run={props.addContact} />
             </div>
