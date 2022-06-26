@@ -88,7 +88,7 @@ export default function Auth(props) {
                             setLoginDnone(false); setRegisterDnone(true); setFadeIn(false); setSlideIn(false); setFadeOut(true); setSlideOut(false);
                         }
                     }}>
-                    <div>
+                    <div className='form-content'>
                         <Input type={'text'} name={'usernameRegister'} placeholder={'Username'} value={username} setValue={setUsername} />
                         <Input type={'email'} name={'emailRegister'} placeholder={'Email'} value={email} setValue={setEmail} />
                         <Input type={'password'} name={'passwordRegister'} placeholder={'Password'} value={password} setValue={setPassword} />

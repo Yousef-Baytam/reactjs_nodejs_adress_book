@@ -128,16 +128,16 @@ export default function Contacts(props) {
             <div className={`form ${ formDisplay ? 'expanded' : 'hidden' }`}>
                 <Input type={'text'} name={'Full Name'} placeholder={'Full Name'} value={props.fullName} setValue={props.setFullName} />
                 <Input type={'text'} name={'Email'} placeholder={'Email'} value={props.email} setValue={props.setEmail} />
-                <div>
+                <div className='layer-1'>
                     <label>Phone</label>
                     <PhoneInput
                         placeholder="Enter phone number"
                         value={props.phone}
                         onChange={props.setPhone} />
                 </div>
-                <div>
+                <div className='layer-1'>
                     <label htmlFor='status'> Relationship Status</label><br />
-                    <select value={props.relationshipStatus} onChange={(e) => props.setRelationshipStatus(e.target.value)} id='status'>
+                    <select value={props.relationshipStatus} onChange={(e) => props.setRelationshipStatus(e.target.value)} id='status' className='layer-1'>
                         <option value="None">None</option>
                         <option value="Single">Single</option>
                         <option value="Married">Married</option>
