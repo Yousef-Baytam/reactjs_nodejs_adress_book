@@ -158,7 +158,7 @@ export default function Contacts(props) {
             <div className={`mapBG ${ mapDisplay ? '' : 'd-none' }`}>
                 <div className={`map ${ mapDisplay ? '' : 'd-none' }`}>
                     <div className='close' onClick={() => { setMapDisplay(false) }}>
-                        Close
+                        <i class="fa-solid fa-xmark"></i>
                     </div>
                     <MapContainer ref={mapRef} center={[33.8938, 35.5018]} zoom={14} scrollWheelZoom={true}>
                         <TileLayer

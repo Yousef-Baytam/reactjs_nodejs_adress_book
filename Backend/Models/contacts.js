@@ -25,7 +25,7 @@ const ContactsSchema = new Schema({
     },
     relationshipStatus: {
         type: String,
-        enum: ["single", "married", "widowed", "separated", "divorced"]
+        enum: ["single", "married", "widowed", "separated", "divorced", "none"]
     },
     address: {
         location: String,

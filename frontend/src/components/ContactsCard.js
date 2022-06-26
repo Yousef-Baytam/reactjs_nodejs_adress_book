@@ -23,7 +23,7 @@ export default function ContactsCard(props) {
                     props.address && props.setPosition(props.address.geometry.coordinates);
                     props.address && props.setMapDisplay(true)
                 }} style={{ cursor: 'pointer' }}>
-                    {props.address ? props.address.location : "Address not set"}
+                    {props.address ? props.address.location : "Address not set"} {props.address && <i class="fa-solid fa-map-location-dot" style={{ color: "darkblue" }}></i>}
                 </div>
                 <i class="fa-solid fa-trash" onClick={() => { props.deleteContact(props.id); console.log(props.id) }}></i>
             </div>
