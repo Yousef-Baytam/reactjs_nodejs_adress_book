@@ -56,39 +56,40 @@ export default function Contacts(props) {
 
     const handleApplyFilter = () => {
         let arr = props.contacts
-        if (props.filter.name.value.length > 0) {
-            if (props.filter.name.atr == 'contains')
-                arr = arr.filter((i) => i.fullName.includes(props.filter.name.value))
-            if (props.filter.name.atr == 'startsWith')
-                arr = arr.filter((i) => i.fullName.slice(0, props.filter.name.value.length) == props.filter.name.value)
-            if (props.filter.name.atr == 'endsWith')
-                arr = arr.filter((i) => i.fullName.slice(-props.filter.name.value.length) == props.filter.name.value)
+        console.log(props.filters)
+        if (props.filters.name.value.length > 0) {
+            if (props.filters.name.atr == 'contains')
+                arr = arr.filter((i) => i.fullName.includes(props.filters.name.value))
+            if (props.filters.name.atr == 'startsWith')
+                arr = arr.filter((i) => i.fullName.slice(0, props.filters.name.value.length) == props.filters.name.value)
+            if (props.filters.name.atr == 'endsWith')
+                arr = arr.filter((i) => i.fullName.slice(-props.filters.name.value.length) == props.filters.name.value)
         }
-        if (props.filter.email.value.length > 0) {
-            if (props.filter.email.atr == 'contains')
-                arr = arr.filter((i) => i.email.includes(props.filter.email.value))
-            if (props.filter.email.atr == 'startsWith')
-                arr = arr.filter((i) => i.email.slice(0, props.filter.email.value.length) == props.filter.email.value)
-            if (props.filter.email.atr == 'endsWith')
-                arr = arr.filter((i) => i.email.slice(-props.filter.email.value.length) == props.filter.email.value)
+        if (props.filters.email.value.length > 0) {
+            if (props.filters.email.atr == 'contains')
+                arr = arr.filter((i) => i.email.includes(props.filters.email.value))
+            if (props.filters.email.atr == 'startsWith')
+                arr = arr.filter((i) => i.email.slice(0, props.filters.email.value.length) == props.filters.email.value)
+            if (props.filters.email.atr == 'endsWith')
+                arr = arr.filter((i) => i.email.slice(-props.filters.email.value.length) == props.filters.email.value)
         }
-        if (props.filter.phone.value.length > 0) {
-            if (props.filter.phone.atr == 'contains')
-                arr = arr.filter((i) => i.phone.includes(props.filter.phone.value))
-            if (props.filter.phone.atr == 'startsWith')
-                arr = arr.filter((i) => i.phone.slice(0, props.filter.phone.value.length) == props.filter.phone.value)
-            if (props.filter.phone.atr == 'endsWith')
-                arr = arr.filter((i) => i.phone.slice(-props.filter.phone.value.length) == props.filter.phone.value)
+        if (props.filters.phone.value.length > 0) {
+            if (props.filters.phone.atr == 'contains')
+                arr = arr.filter((i) => i.phone.includes(props.filters.phone.value))
+            if (props.filters.phone.atr == 'startsWith')
+                arr = arr.filter((i) => i.phone.slice(0, props.filters.phone.value.length) == props.filters.phone.value)
+            if (props.filters.phone.atr == 'endsWith')
+                arr = arr.filter((i) => i.phone.slice(-props.filters.phone.value.length) == props.filters.phone.value)
         }
-        if (props.filter.status.value.length > 0) {
-            if (props.filter.status.atr == 'contains')
-                arr = arr.filter((i) => i.relationshipStatus.includes(props.filter.status.value))
-            if (props.filter.status.atr == 'startsWith')
-                arr = arr.filter((i) => i.relationshipStatus.slice(0, props.filter.status.value.length) == props.filter.status.value)
-            if (props.filter.status.atr == 'endsWith')
-                arr = arr.filter((i) => i.relationshipStatus.slice(-props.filter.status.value.length) == props.filter.status.value)
+        if (props.filters.status.value.length > 0) {
+            if (props.filters.status.atr == 'contains')
+                arr = arr.filter((i) => i.relationshipStatus.includes(props.filters.status.value))
+            if (props.filters.status.atr == 'startsWith')
+                arr = arr.filter((i) => i.relationshipStatus.slice(0, props.filters.status.value.length) == props.filters.status.value)
+            if (props.filters.status.atr == 'endsWith')
+                arr = arr.filter((i) => i.relationshipStatus.slice(-props.filters.status.value.length) == props.filters.status.value)
         }
-
+        props.setContacts(arr)
     }
 
     useEffect(() => {
@@ -97,11 +98,10 @@ export default function Contacts(props) {
 
     return (
         <>
-
             {/* header tools  */}
             <div className='contacts-header-container'>
                 <div className='options'>
-                    <div>
+                    <div onClick={() => { handleApplyFilter() }}>
                         Apply Filters
                     </div>
                     <div>
