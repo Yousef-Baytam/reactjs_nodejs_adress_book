@@ -62,7 +62,7 @@ export default function Auth(props) {
     return (
         <>
             <div className='auth-container'>
-                <div>
+                <div className='brand'>
                     My Phone Book
                 </div>
                 <form className={`${ fadeIn ? 'fade-out' : '' } ${ fadeOut ? 'fade-in' : '' } ${ loginDnone ? 'translate' : '' }`}

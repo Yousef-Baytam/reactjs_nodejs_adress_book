@@ -135,7 +135,7 @@ export default function Contacts(props) {
                         value={props.phone}
                         onChange={props.setPhone} />
                 </div>
-                <div className='layer-1'>
+                <div className='layer-1 drop'>
                     <label htmlFor='status'> Relationship Status</label><br />
                     <select value={props.relationshipStatus} onChange={(e) => props.setRelationshipStatus(e.target.value)} id='status' className='layer-1'>
                         <option value="None">None</option>
