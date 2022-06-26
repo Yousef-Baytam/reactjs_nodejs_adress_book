@@ -11,11 +11,11 @@ export default function Header(props) {
         navigate('/')
     }
     return (
-        <div>
-            <div onClick={() => { navigate('/contacts') }}>
+        <div className='header'>
+            <div onClick={() => { navigate('/contacts') }} className='button'>
                 All Contacts
             </div>
-            <div onClick={() => { handleLogout() }}>
+            <div onClick={() => { handleLogout() }} className='button'>
                 Logout
             </div>
         </div>
