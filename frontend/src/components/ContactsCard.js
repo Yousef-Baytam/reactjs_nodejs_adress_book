@@ -25,7 +25,7 @@ export default function ContactsCard(props) {
                 }} style={{ cursor: 'pointer' }}>
                     {props.address ? props.address.location : "Address not set"}
                 </div>
-                <i class="fa-solid fa-trash"></i>
+                <i class="fa-solid fa-trash" onClick={() => { props.deleteContact(props.id); console.log(props.id) }}></i>
             </div>
         </div>
     )

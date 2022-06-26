@@ -45,10 +45,11 @@ export default function Contacts(props) {
                 email={i.email}
                 status={i.relationshipStatus}
                 address={i.address}
-                id={i.id}
-                key={i.id}
+                id={i._id}
+                key={i._id}
                 setPosition={props.setPosition}
-                setMapDisplay={setMapDisplay} />)
+                setMapDisplay={setMapDisplay}
+                deleteContact={props.deleteContact} />)
     }
 
     const handleFilters = () => {

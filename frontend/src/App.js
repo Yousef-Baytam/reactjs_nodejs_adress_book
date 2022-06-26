@@ -128,15 +128,14 @@ function App() {
   const deleteContact = async (id) => {
     try {
       let res = await axios({
-        url: `http://127.0.0.1:777/contacts${ id }`,
+        url: `http://127.0.0.1:777/contacts/${ id }`,
         method: "delete",
         headers: {
           Authorization: `bearer ${ localStorage.getItem('token') }`
         },
       })
-      // if (res.data.success) {
-      //   setContacts([...contacts, res.data.results])
-      // }
+      console.log(res)
+      setContacts(contacts.filter((e) => e._id != id))
     }
     catch (e) {
       console.log(e);
@@ -179,7 +178,8 @@ function App() {
               position={position}
               filters={filters}
               setFilters={setFilters}
-              contactsCopy={contactsCopy} />}
+              contactsCopy={contactsCopy}
+              deleteContact={deleteContact} />}
           ></Route>
         </Routes>
       </div>
