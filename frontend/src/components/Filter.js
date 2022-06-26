@@ -1,8 +1,14 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 export default function Filter(props) {
     const [atr, setAtr] = useState('contains')
     const [val, setVal] = useState('')
+
+    useEffect(() => {
+        setAtr('contains')
+        setVal('')
+    }, [props.clearSignal])
+
 
     return (
         <div className={`dropdown-content ${ props.name }`}>

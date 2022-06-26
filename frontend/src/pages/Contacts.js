@@ -13,6 +13,7 @@ export default function Contacts(props) {
     const navigate = useNavigate()
 
     const mapRef = useRef()
+    const [clearSignal, setClearSignal] = useState(false)
     const [formDisplay, setFormDisplay] = useState(false)
     const [mapDisplay, setMapDisplay] = useState(false)
     const [nameFilter, setNameFilter] = useState({ "atr": 'contains', "value": '' })
@@ -55,7 +56,7 @@ export default function Contacts(props) {
     }
 
     const handleApplyFilter = () => {
-        let arr = props.contacts
+        let arr = props.contactsCopy
         console.log(props.filters)
         if (props.filters.name.value.length > 0) {
             if (props.filters.name.atr == 'contains')
@@ -92,6 +93,14 @@ export default function Contacts(props) {
         props.setContacts(arr)
     }
 
+    const handleClearFilter = () => {
+        props.setContacts(props.contactsCopy)
+        setNameFilter({ "atr": 'contains', "value": '' })
+        setEmailFilter({ "atr": 'contains', "value": '' })
+        setPhoneFilter({ "atr": 'contains', "value": '' })
+        setStatusFilter({ "atr": 'contains', "value": '' })
+    }
+
     useEffect(() => {
         handleFilters()
     }, [nameFilter, emailFilter, phoneFilter, statusFilter])
@@ -104,7 +113,7 @@ export default function Contacts(props) {
                     <div onClick={() => { handleApplyFilter() }}>
                         Apply Filters
                     </div>
-                    <div>
+                    <div onClick={() => { handleClearFilter(); setClearSignal(!clearSignal) }}>
                         Clear Filters
                     </div>
                 </div>
@@ -160,22 +169,22 @@ export default function Contacts(props) {
                 <div className='card'>
                     <div>
                         Full Name <i class="fa-solid fa-filter" id='name'>
-                            <Filter name={"Name"} setNameFilter={setNameFilter} />
+                            <Filter name={"Name"} setNameFilter={setNameFilter} clearSignal={clearSignal} />
                         </i>
                     </div>
                     <div>
                         Email <i class="fa-solid fa-filter" id='email'>
-                            <Filter name={"Email"} setNameFilter={setEmailFilter} />
+                            <Filter name={"Email"} setNameFilter={setEmailFilter} clearSignal={clearSignal} />
                         </i>
                     </div>
                     <div>
                         Phone Number <i class="fa-solid fa-filter" id='phone'>
-                            <Filter name={"Phone"} setNameFilter={setPhoneFilter} />
+                            <Filter name={"Phone"} setNameFilter={setPhoneFilter} clearSignal={clearSignal} />
                         </i>
                     </div>
                     <div>
                         Relationship Status <i class="fa-solid fa-filter" id='status'>
-                            <Filter name={"Status"} setNameFilter={setStatusFilter} />
+                            <Filter name={"Status"} setNameFilter={setStatusFilter} clearSignal={clearSignal} />
                         </i>
                     </div>
                     <div>
