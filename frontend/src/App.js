@@ -143,7 +143,7 @@ function App() {
 
   return (
     <>
-      {location.pathname != '/' && <Header />}
+      {location.pathname != '/' && <Header setLoggedIn={setLoggedIn} setUser={setUser} />}
       <div className="App">
         <Routes>
           <Route
